@@ -3,26 +3,30 @@
 <head>
     <title>Question Detail</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-    <h1>Question Detail</h1>
-    
-    <p>Title: <span th:text="${question.title}">Question Title</span></p>
-    <p>Content: <span th:text="${question.content}">Question Content</span></p>
-    
-    <h2>Answers</h2>
+<header>2024-웹서버프로젝트</header>
+<div class="question-detail">
+    <p class="title" th:text="${question.title}">질문 제목</p>
+    <hr/>
+    <p class="content" th:text="${question.content}">질문 내용</p>
+
+
+    <h2>답변</h2>
+    <hr/>
     <ul>
         <li th:each="answer : ${question.answers}">
             <span th:text="${answer}"></span>
         </li>
     </ul>
-    
+
     <form action="#" th:action="@{'/questions/' + ${question.id} + '/addAnswer'}" method="post">
-        <label for="answer">Your Answer:</label><br>
         <input type="text" id="answer" name="answer"><br>
-        <button type="submit">Add Answer</button>
+        <button class="button" type="submit">답변 달기</button>
     </form>
-    
-    <a href="/questions">Back to Question List</a>
+
+    <a href="/questions">질문 목록으로 가기</a>
+</div>
 </body>
 </html>

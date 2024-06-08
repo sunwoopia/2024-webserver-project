@@ -9,7 +9,7 @@ public class Question {
     private String content;
     private List<String> answers;
 
-    // Constructors
+    // 생성자
     public Question() {
         answers = new ArrayList<>();
     }
@@ -21,7 +21,7 @@ public class Question {
         this.answers = new ArrayList<>();
     }
 
-    // Getters and Setters
+    // Getters & Setters
     public Long getId() {
         return id;
     }

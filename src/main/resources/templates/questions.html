@@ -3,17 +3,20 @@
 <head>
     <title>Questions</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-    <h1>Questions</h1>
-
-    <a href="/questions/new">Add New Question</a>
-
-    <h2>Question List</h2>
+<header>2024-웹서버프로젝트</header>
+<div class="question-list">
+    <h1>질문 목록</h1>
+    <hr/>
     <ul>
         <li th:each="question : ${questions}">
+            <p th:text="${question.id}"></p>
             <a th:href="@{'/questions/' + ${question.id}}"><span th:text="${question.title}">Question Title</span></a>
         </li>
     </ul>
+    <a href="/questions/new" class="button">새 질문 하기</a>
+</div>
 </body>
 </html>
