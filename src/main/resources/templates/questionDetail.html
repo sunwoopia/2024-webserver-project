@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Question Detail</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Question Detail</h1>
+    
+    <p>Title: <span th:text="${question.title}">Question Title</span></p>
+    <p>Content: <span th:text="${question.content}">Question Content</span></p>
+    
+    <h2>Answers</h2>
+    <ul>
+        <li th:each="answer : ${question.answers}">
+            <span th:text="${answer}"></span>
+        </li>
+    </ul>
+    
+    <form action="#" th:action="@{'/questions/' + ${question.id} + '/addAnswer'}" method="post">
+        <label for="answer">Your Answer:</label><br>
+        <input type="text" id="answer" name="answer"><br>
+        <button type="submit">Add Answer</button>
+    </form>
+    
+    <a href="/questions">Back to Question List</a>
+</body>
+</html>

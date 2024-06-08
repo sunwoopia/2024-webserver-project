@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Questions</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Questions</h1>
+
+    <a href="/questions/new">Add New Question</a>
+
+    <h2>Question List</h2>
+    <ul>
+        <li th:each="question : ${questions}">
+            <a th:href="@{'/questions/' + ${question.id}}"><span th:text="${question.title}">Question Title</span></a>
+        </li>
+    </ul>
+</body>
+</html>
